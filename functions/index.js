@@ -1,17 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const productRoute = require("./routes/product.route.js");
+const productRoute = require("../routes/product.route.js");
+const serverless = require("serverless-http");
 const dotenv = require('dotenv');
 const app = express();
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
 dotenv.config(); //enable .env variables
 
 //routes
-app.use("/api/products/", productRoute)
+app.use("/.netlify/functions/api/products/", productRoute)
 
 
 app.get('/', function (req, res) {
@@ -31,6 +31,6 @@ mongoose.connect('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASS+'@
 }).catch(() => console.log("Connection failed!"));
 
 
-
+module.exports.handler = serverless(app);
   
   
