@@ -15,6 +15,10 @@ app.get('/', function (req, res) {
   res.send("This is a PRODUCT API homepage")
 });
 
+router.post('/add', (req, res) => {
+  res.send('New record added.');
+});
+
 
 //connection string
 mongoose.connect('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+process.env.DB_HOST)
@@ -26,7 +30,7 @@ mongoose.connect('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASS+'@
 }).catch(() => console.log("Connection failed!"));
 
 //routes
-app.use("/.netlify/functions/api/products/", productRoute)
+app.use("/.netlify/functions/api/", productRoute)
 module.exports.handler = serverless(app);
   
   
