@@ -10,15 +10,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 dotenv.config(); //enable .env variables
 
-//routes
-app.use("/.netlify/functions/api/products/", productRoute)
-
-
 app.get('/', function (req, res) {
   console.log("Hello home!");
 });
-
-
 
 
 //connection string
@@ -30,7 +24,8 @@ mongoose.connect('mongodb+srv://'+process.env.DB_USER+':'+process.env.DB_PASS+'@
     }
 }).catch(() => console.log("Connection failed!"));
 
-
+//routes
+app.use("/.netlify/functions/api/products/", productRoute)
 module.exports.handler = serverless(app);
   
   
