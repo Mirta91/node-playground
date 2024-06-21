@@ -15,7 +15,7 @@ app.use("/api/products/", productRoute)
 
 
 app.get('/', function (req, res) {
-  console.log("Hello home!")yield
+  console.log("Hello home!");
 });
 
 

@@ -12,11 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@netlify/functions": "^2.7.0",
     "@types/node": "^20.14.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongodb": "^6.7.0",
-    "mongoose": "^8.4.3"
+    "mongoose": "^8.4.3",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
