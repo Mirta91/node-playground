@@ -12,6 +12,7 @@ dotenv.config(); //enable .env variables
 
 app.get('/', function (req, res) {
   console.log("Hello home!");
+  res.send("This is a PRODUCT API homepage")
 });
 
 
